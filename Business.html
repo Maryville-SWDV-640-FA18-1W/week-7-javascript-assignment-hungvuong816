@@ -32,37 +32,43 @@
               <a href="#"><img src ="background.jpg"></a>
             </div>
 
-    <div class="businessphotos">
+    <div id="businessphotos">
         <div class = "business1"><img src="PropertyManagement.jpg" alt="apartment"></div>
         <div class = "business2"><img src="InvestmentManagement.jpg" alt="apartment"></div>
         <div class = "business3"><img src="DevelopmentManagement.jpg" alt="apartment"></div>
       
     </div>
    
-    <div class = "title">
-            <a class="menu" href="#headings">Property Management</a>
-            <a class="menu" href="#buttons">Investment Management</a>
-            <a class="menu" href="#formElements">Development And Construction</a>
-        
-    </div>
+    <div id ="box2"></div>
+
+    <div id ="box3"></div>
     
-    <div class = "businesstext">
-        <p class = "text1">With over 437,000 multifamily units and student beds under management globally, PRO provides a wealth of experience in managing all product types and servicing a diverse investor group.</p>
-        <p class = "text2">With vast experience and an international investment strategy, our team possesses a combination of local market expertise and the ability to leverage relationships into investment opportunities, resulting in a $26.4 billion global portfolio.</p>
-        <p class = "text3">With a global development strategy and track record of more than $11.4 billion of sponsored multifamily projects in the US, the fully integrated PRO operating platform provides professional guidance from concept to completion.</p>
-    </div>
 
-
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
     <div id ="box"></div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
     <script type ="mustache/x-tmpl" id ="mylist">
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+    
     <ul id="myUL">
         {{#user}}
             <li><a>{{.}}</a></li>
          {{/user}}
     </ul>
+
+    <ul>
+        {{#service}}
+            <a>{{.}}</a>
+         {{/service}}
+    </ul>
+    <ul>
+        {{#paragraph}}
+            <p>{{.}}</p>
+         {{/paragraph}}
+        
+    </ul>
+
+
 
     </script>
 
@@ -76,12 +82,21 @@
     
             box.innerHTML = html;
 
+            var service_type = {service: ["Property Management","Investment Management","Development and Construction"]};
+            var template = document.getElementById("mylist").innerHTML;
+            var html2 = Mustache.to_html(template,service_type);
+            var box2 = document.getElementById("box2");
+            box2.innerHTML = html2;
+
+            var paragraph_text = {paragraph: ["With over 437,000 multifamily units and student beds under management globally, PRO provides a wealth of experience in managing all product types and servicing a diverse investor group",
+            "With vast experience and an international investment strategy, our team possesses a combination of local market expertise and the ability to leverage relationships into investment opportunities, resulting in a $26.4 billion global portfolio.",
+            "With a global development strategy and track record of more than $11.4 billion of sponsored multifamily projects in the US, the fully integrated PRO operating platform provides professional guidance from concept to completion."]};
+            var template2 = document.getElementById("mylist").innerHTML;
+            var html3 = Mustache.to_html(template2,paragraph_text);
+            var box3 = document.getElementById("box3");
+            box3.innerHTML = html3;
+
 </script>
-
-
-
-
-
 
 
 </body>
