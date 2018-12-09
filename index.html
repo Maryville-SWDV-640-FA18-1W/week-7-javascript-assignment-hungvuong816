@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>testing</title>
+
+    <!-- Site theme -->
+    <link rel="stylesheet" href="Style.css">
+    <script src="script.js" type="application/javascript"></script>
+
+</head>
+
+<body>
+        <div class="container">
+            
+                <div name ="top" class="topnav">
+                        <a class ="logo" role = "img" aria-labelledby="star_id" href="https://online.maryville.edu"><img src="Logo.jpg" border="0" Alt="Previous page" ></a>
+                        <a class="menu" href="#Font">Apartment</a>
+                        <a class="menu" href="#colorTheme">Business Service</a>
+                        <a class="menu" href="#headings">Career</a>
+                        <a class="menu" href="#buttons">About</a>
+                        <a class="menu" href="#formElements">Contact</a>
+        
+                </div>
+            </div>
+        
+            <div class = "background">
+              <a href="#"><img src ="background.jpg"></a>
+            </div>
+
+      
+    <div id ="box"></div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <script type ="mustache/x-tmpl" id ="mylist">
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+    <ul id="myUL">
+        {{#user}}
+            <li><a>{{.}}</a></li>
+         {{/user}}
+    </ul>
+
+    </script>
+
+ <script>
+            var data = {user: 
+                ["Texas", "Georgia","Kentucky","California","Massachuset","Colorado"]
+            };
+            var tmpl = document.getElementById("mylist").innerHTML;
+            var html = Mustache.to_html(tmpl, data);
+            var box = document.getElementById("box");
+    
+            box.innerHTML = html;
+
+</script>
+
+
+</body>
+
+
+<footer>
+        <div class="bottomnav">
+        <a class="menu" href="#Font">Apartment</a>
+        <a class="menu" href="#colorTheme">Business Service</a>
+        <a class="menu" href="#headings">Career</a>
+        <a class="menu" href="#buttons">About</a>
+        <a class="menu" href="#formElements">Contact</a>
+        </div>
+    </footer>
+
+
+
+</html>
